@@ -15,7 +15,8 @@ st.title('Detección de Fraude :bank:')
 st.write('Aplicación para evaluar el mejor modelo de aprendizaje automático supervisado para detectar transacciones fraudulentas')
 #Loading the Data
 # Load the dataset from the csv file using pandas
-df=st.cache_data(pd.read_csv)('creditcard.csv')
+url = 'https://raw.githubusercontent.com/nsethi31/Kaggle-Data-Credit-Card-Fraud-Detection/master/creditcard.csv'
+df=st.cache_data(pd.read_csv)(url)
 df = df.sample(frac=0.1, random_state = 48)
 
 

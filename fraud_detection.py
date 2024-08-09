@@ -181,14 +181,14 @@ if st.sidebar.checkbox('Ejecutar un modelo de detección de fraudes con tarjetas
         elif imb_rect=='SMOTE':
                 rect=smt
                 st.write('Tamaño del dataset de entrenamiento desbalanceado: ',np.bincount(y_train))
-                X_train_bal, y_train_bal = rect.fit_sample(X_train_sfs_scaled, y_train)
+                X_train_bal, y_train_bal = rect.fit_resample(X_train_sfs_scaled, y_train)
                 st.write('Tamaño del dataset de entrenamiento balanceado: ',np.bincount(y_train_bal))
                 st.write('Tamaño del dataset de prueba: ', np.bincount(y_test))
                 compute_performance(model, X_train_bal, y_train_bal,X_test_sfs_scaled,y_test)
         elif imb_rect=='Near Miss':
             rect=nr
             st.write('Tamaño del dataset de entrenamiento desbalanceado: ',np.bincount(y_train))
-            X_train_bal, y_train_bal = rect.fit_sample(X_train_sfs_scaled, y_train)
+            X_train_bal, y_train_bal = rect.fit_resample(X_train_sfs_scaled, y_train)
             st.write('Tamaño del dataset de entrenamiento balanceado: ',np.bincount(y_train_bal))
             st.write('Tamaño del dataset de prueba: ', np.bincount(y_test))
             compute_performance(model, X_train_bal, y_train_bal,X_test_sfs_scaled,y_test)    
